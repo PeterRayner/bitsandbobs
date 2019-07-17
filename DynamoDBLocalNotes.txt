@@ -1,0 +1,25 @@
+DynamoDB local table tutorial fun
+
+1) download package here
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DynamoDBLocal.DownloadingAndRunning.html
+
+2) start DynamoDB locally by running :
+java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
+
+3) list tables on your local DynamoDB table by running:
+aws dynamodb list-tables --endpoint-url http://localhost:8000
+
+-lets create our own local table:
+aws dynamodb create-table --table-name peterTable --attribute-definitions AttributeName=Id,AttributeType=S --key-schema AttributeName=Id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=50,WriteCapacityUnits=50 --endpoint-url http://localhost:8000
+
+4) lets insert our first bit of data, lets run:
+aws dynamodb put-item --table-name peterTable --item '{"Id":{"S":"243241"},"Name":{"S":"Peter"}}' --endpoint-url http://localhost:8000
+
+5) now lets scan the table:
+aws dynamodb scan --table-name peterTable  --endpoint-url http://localhost:8000
+
+6) lets query the table:
+aws dynamodb get-item --table-name peterTable --key '{"Id":{"S":"243241"}}'  --endpoint-url http://localhost:8000
+
+
+
