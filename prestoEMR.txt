@@ -1,0 +1,19 @@
+
+presto-cli --catalog Glue-catalog --schema csv --output-format CSV
+
+port forward useful for UIs:
+
+ssh -i <YOURKEY>.pem -N -L 8889:<EC2ID>.eu-west-1.compute.amazonaws.com:8888 hadoop@<EC2ID>.eu-west-1.compute.amazonaws.com
+
+
+create cluster with HIVE and AWS GLUE catalog installed along with presto.
+
+Log into cluster:
+
+ssh -i ~/<YOURKEY>.pem hadoop@<EC2ID>.eu-west-1.compute.amazonaws.com
+
+Run Presto query using presto CLI using the following:
+
+ presto-cli --catalog hive --schema <DATABASENAME> --execute "select * from <TABLENAME>" --output-format CSV > prestoout.csv
+
+------------------------------------------------------------------------------------------
