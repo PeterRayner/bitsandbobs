@@ -24,7 +24,7 @@
 #
 # THIS RUNS THE ADD PARTITION command. THE OUTPUT LOCATION IS THE S3 LOCATION WHERE YOU WILL FIND THE RESULTS OF YOUR DATA.
 #  RESULT RETURNS THE QUERY id OF THE query
-result=$(aws athena start-query-execution --query-string "$queryString" --result-configuration "OutputLocation=s3://soaringsafaris/outputresults/")
+result=$(aws athena start-query-execution --query-string "$queryString" --result-configuration "OutputLocation=s3://<BUCKETNAME>/outputresults/")
 echo $result #output the query ID for queryString
 
 # halts the script for 5s to ensure the partition is added and the query completes succesfully, before running main script
@@ -36,6 +36,6 @@ then
 	#
 	# THIS RUNS THE MAIN QUERY. THE OUTPUT LOCATION IS THE S3 LOCATION WHERE YOU WILL FIND THE RESULTS OF YOUR DATA.
 	#
-	result=$(aws athena start-query-execution --query-string "$MainQuery" --result-configuration "OutputLocation=s3://soaringsafaris/outputresults/")
+	result=$(aws athena start-query-execution --query-string "$MainQuery" --result-configuration "OutputLocation=s3://<BUCKETNAME>/outputresults/")
 	echo $result #output the query ID for MainQuery
 fi
