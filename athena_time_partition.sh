@@ -1,6 +1,9 @@
  #! /bin/bash
 
- # THIS SCRIPT IS USED AT YOUR OWN RISK
+ # !!!!!!!!!!-------------------THIS SCRIPT IS USED AT YOUR OWN RISK----------------------------!!!!!!!!!
+ # !!!!!!!!!!I HAVE NOT CHECKED FOR ALL POSSIBLE EDGE CASES AND IT IS POSSIBLE THERE ARE BUGS IN HERE!!!!
+ #
+ #
  #THIS SCRIPT ASSUMES YOU HAVE AWS CLI installed, if not use sudo apt-get install awscli -- or see : https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
  #THIS SCRIPT IS MADE TO ADD THE LAST DAY PARTITION AND THEN QUERY ALL THE DATA FROM THIS LAST DAY
  #
