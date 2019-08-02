@@ -50,8 +50,11 @@ fi
 #
 #
 #
+#  to copy the results of a given period of time to another bucket use:
 #
-#
-#
-#
+#  Delete all objects in the files to ensure we only copy the data we want
+#  emptyBucket=$(aws s3 rm s3://<BucketName/DataPipeline_to_RDS/*)
+#  echo $emptyBucket
+#  copy=$(aws s3 cp s3://<BucketName>/"$previousdaypartition"  s3://<BucketName/DataPipeline_to_RDS/)
+#  echo $copy
 #
